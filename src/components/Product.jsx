@@ -1,62 +1,117 @@
 import Card from 'react-bootstrap/Card';
-import { MdStar } from "react-icons/md";
-import {useState, useEffect} from 'react';
-import axios from 'axios';
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
+import './Product.css';
 
+import productList from '../data/products.json';
 
-function Product() {
-  const [prod, setProd] = useState();
+// Función para calcular precio con descuento
+const calcularPrecioConDescuento = (price, discountPercentage) => {
+  if (!discountPercentage || discountPercentage === 0) return price;
+  const discounted = price - (price * discountPercentage * 0.01);
+  return Math.round(discounted);
+};
 
-useEffect(()=>{
-  getProduct();
-},[])
+// Función para formatear precio en pesos argentinos
+const formatearPrecio = (precio) => {
+  return new Intl.NumberFormat('es-AR', {
+    style: 'currency',
+    currency: 'ARS',
+    minimumFractionDigits: 0,
+    maximumFractionDigits: 0,
+  }).format(precio);
+};
 
-const getProduct = async() =>{
-  const response = await axios.get('https://dummyjson.com/products');
-  setProd(response.data.products);
-}
+function Product({ limit = null, showRating = true, showBrand = true }) {
+  const productosAMostrar = limit ? productList.slice(0, limit) : productList;
+
+  if (!productosAMostrar || productosAMostrar.length === 0) {
+    return (
+      <div className="text-center py-5">
+        <p className="text-muted">No hay productos disponibles</p>
+      </div>
+    );
+  }
 
   return (
-    <div className='d-flex flex-wrap justify-content-around gap-3'>
-      {console.log(prod)}
-      {
-        prod?.map((item, index)=>{
-          return (
-            <Link to={'/productdetails/'+ item.id} key={index} className='text-decoration-none'>
-                <Card style={{ width: '15rem' }} className='gap-3'>
-                      <Card.Img variant="top" src={item.thumbnail} style={{
-                        width: '10rem',
-                        height: '8rem'}} className='mx-auto'/>
-                        <Card.Body>
-                          <Card.Title>{
-                          item.title.length>17? item.title.slice(0,17)+'..':item.title.charAt(0).toUpperCase() + item.title.slice(1)
-                          }</Card.Title>
-                          <div className="d-flex justify-content-between align-items-center text-secondary">
-                          <Card.Text className='m-0 text-decoration-line-through'>
-                            {'$'+item.price}
-                          </Card.Text>
-                          <Card.Text>
-                            {-item.discountPercentage+'%'}
-                          </Card.Text>
-                          </div>
-                          <div className="d-flex justify-content-between align-items-center">
-                          <Card.Text className='m-0' style={{color:'#f85606'}}>
-                          {'$'+(item.price-(item.price*item.discountPercentage*0.01)).toFixed(2)}
-                          </Card.Text>
-                          <Card.Text>
-                            <MdStar style={{color:'#f85606'}}/>
-                            ({item.rating})
-
-                          </Card.Text>
-                          </div>
-                          <p>{item.brand}</p>
-                        </Card.Body>
-                  </Card>
-            </Link>
-                  )})}
+    <div className='d-flex flex-wrap justify-content-center gap-4 py-4'>
+      {productosAMostrar.map((item) => {
+        const precioConDescuento = calcularPrecioConDescuento(item.price, item.discountPercentage);
+        const tieneDescuento = item.discountPercentage && item.discountPercentage > 0;
+        
+        return (
+          <Link 
+            to={`/productdetails/${item.id}`} 
+            key={item.id} 
+            className='text-decoration-none product-link'
+            aria-label={`Ver detalles de ${item.title}`}
+          >
+            <Card className='product-card h-100 border-0 shadow-sm transition-hover'>
+              <div className="img-container position-relative overflow-hidden">
+                {tieneDescuento && (
+                  <span className="badge-discount position-absolute top-0 end-0 m-2 px-2 py-1 bg-danger text-white rounded-pill small fw-bold">
+                    -{item.discountPercentage}%
+                  </span>
+                )}
+                <Card.Img 
+                  variant="top" 
+                  src={item.thumbnail} 
+                  alt={item.title}
+                  className='product-img p-3'
+                  loading="lazy"
+                  onError={(e) => {
+                    e.target.src = '/images/placeholder.jpg';
+                  }}
+                />
+              </div>
+              
+              <Card.Body className="d-flex flex-column">
+                {showBrand && (
+                  <p className="text-muted small mb-1">{item.brand}</p>
+                )}
+                
+                <Card.Title className='fs-6 fw-bold text-dark mb-2 line-clamp-2'>
+                  {item.title}
+                </Card.Title>
+                
+                {showRating && item.rating && (
+                  <div className="d-flex align-items-center gap-1 mb-2">
+                    <span className="text-warning">★</span>
+                    <span className="small text-muted">{item.rating}</span>
+                  </div>
+                )}
+                
+                <div className="d-flex align-items-center gap-2 mb-2 mt-auto">
+                  <span className='fw-bold text-primary' style={{ fontSize: '1.2rem' }}>
+                    {formatearPrecio(precioConDescuento)}
+                  </span>
+                  {tieneDescuento && (
+                    <span className='text-decoration-line-through text-secondary small'>
+                      {formatearPrecio(item.price)}
+                    </span>
+                  )}
+                </div>
+              </Card.Body>
+            </Card>
+          </Link>
+        );
+      })}
     </div>
   );
 }
+
+// ✅ Validación de PropTypes
+Product.propTypes = {
+  limit: PropTypes.number,
+  showRating: PropTypes.bool,
+  showBrand: PropTypes.bool,
+};
+
+// ✅ Valores por defecto
+Product.defaultProps = {
+  limit: null,
+  showRating: true,
+  showBrand: true,
+};
+
 export default Product;
-    

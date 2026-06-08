@@ -1,0 +1,68 @@
+/* Product.css - Estilos mejorados para la tarjeta de producto */
+
+.product-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+  width: 280px;
+  max-width: 100%;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1) !important;
+}
+
+.product-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+.img-container {
+  background-color: #f8f9fa;
+  border-radius: 8px 8px 0 0;
+  position: relative;
+}
+
+.product-img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.product-card:hover .product-img {
+  transform: scale(1.02);
+}
+
+.badge-discount {
+  font-size: 0.7rem;
+  z-index: 1;
+}
+
+.line-clamp-2 {
+  display: -webkit-box;
+
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .product-card {
+    width: 240px;
+  }
+  
+  .product-img {
+    height: 180px;
+  }
+}
+
+@media (max-width: 576px) {
+  .product-card {
+    width: 200px;
+  }
+  
+  .product-img {
+    height: 150px;
+  }
+}

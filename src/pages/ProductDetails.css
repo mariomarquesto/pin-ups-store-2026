@@ -1,0 +1,18 @@
+@media (max-width: 576px) {
+  .tracking-wide {
+    letter-spacing: 0.5px;
+  }
+  
+  .small-md {
+    font-size: 0.85rem;
+  }
+}
+
+/* Animación suave en imágenes */
+img {
+  transition: transform 0.3s ease;
+}
+
+img:hover {
+  transform: scale(1.02);
+}

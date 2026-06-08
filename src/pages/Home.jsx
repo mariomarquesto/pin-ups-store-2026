@@ -12,7 +12,7 @@ const Home = () =>{
         <Slider/>
       </div>
       <div className="banner container mt-3">
-        <img src='./Banner.jpg' alt="Banner Image" style={{width:'100%'}}/>
+        <img src='./pin-ups-baner.png' alt="Banner Image" style={{width:'100%'}}/>
       </div>
         <ProductContainer/>
         <div className='d-flex justify-content-center align-items-center'>

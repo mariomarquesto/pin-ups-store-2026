@@ -7,42 +7,42 @@ function Slider() {
             <Carousel.Item>
                 <img
                     className="d-block w-100"
-                    src='./Slider1.jpg'
+                    src='./pin-ups1.png'
                     alt="First slide"
                 />
             </Carousel.Item>
             <Carousel.Item>
                 <img
           className="d-block w-100"
-          src='./Slider2.jpg'
+          src='./pin-ups2.png'
           alt="Second slide"
         />
       </Carousel.Item>
       <Carousel.Item>
         <img
           className="d-block w-100"
-          src='./Slider3.jpg'
+          src='./pin-ups3.png'
           alt="Third slide"
         />
       </Carousel.Item>
       <Carousel.Item>
         <img
           className="d-block w-100"
-          src='./Slider4.jpg'
+          src='./pin-ups4.png'
           alt="Fourth slide"
         />
       </Carousel.Item>
       <Carousel.Item>
         <img
           className="d-block w-100"
-          src='./Slider5.jpg'
+          src='./pin-ups5.png'
           alt="Fifth slide"
         />
       </Carousel.Item>
       <Carousel.Item>
         <img
           className="d-block w-100"
-          src='./Slider6.jpg'
+          src='./pin-ups6.png'
           alt="Sixth slide"
         />
       </Carousel.Item>
