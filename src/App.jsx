@@ -8,6 +8,8 @@ import Searchedproduct from './pages/Searchedproduct.jsx';
 import Productdetails from './pages/Productdetails.jsx';
 import Footer from './components/Footer.jsx';
 import SecureRoute from './services/SecureRoute.jsx';
+import CategoryPage from './pages/CategoryPage.jsx';
+
 
 function App() {
 
@@ -21,6 +23,7 @@ function App() {
       <Route path='/addtocart' element={<SecureRoute/>}>
         <Route path='/addtocart' element={<Addtocart/>}/>
       </Route>
+      <Route path='/category/:categoryName' element={<CategoryPage/>} />
       <Route path='/searchedproduct' element={<Searchedproduct/>} />
       <Route path='/productdetails/:id' element={<Productdetails/>} />
     </Routes>

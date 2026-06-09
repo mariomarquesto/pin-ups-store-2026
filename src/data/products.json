@@ -6,7 +6,8 @@
     "discountPercentage": 15,
     "rating": 4.8,
     "brand": "Pin Ups Collection",
-    "thumbnail": "https://images.unsplash.com/photo-1572804013309-59a88b7e92f1?w=400"
+    "category": "vestidos",
+    "thumbnail": "https://images.unsplash.com/photo-1539008835657-9e8e9680c956?w=400"
   },
   {
     "id": 2,
@@ -15,7 +16,8 @@
     "discountPercentage": 10,
     "rating": 4.9,
     "brand": "Pin Ups Denim",
-    "thumbnail": "https://images.unsplash.com/photo-1572804013309-59a88b7e92f1?w=400"
+    "category": "pantalones",
+    "thumbnail": "https://images.unsplash.com/photo-1582418702059-97ebafb35d09?w=400"
   },
   {
     "id": 3,
@@ -24,6 +26,48 @@
     "discountPercentage": 20,
     "rating": 4.7,
     "brand": "Pin Ups Shoes",
+    "category": "calzado",
     "thumbnail": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=400"
-  }
+  },
+  {
+    "id": 4,
+    "title": "Blusa Seda Oversize",
+    "price": 28000,
+    "discountPercentage": 5,
+    "rating": 4.6,
+    "brand": "Pin Ups Collection",
+    "category": "remeras",
+    "thumbnail": "https://images.unsplash.com/photo-1564257631407-4deb1f99d992?w=400"
+  },
+  {
+    "id": 7,
+    "title": "Campera Gabardina Oversize",
+    "price": 85000,
+    "discountPercentage": 15,
+    "rating": 4.9,
+    "brand": "Pin Ups Outerwear",
+    "category": "camperas",
+    "thumbnail": "https://images.unsplash.com/photo-1539109136881-3be0616acf4b?w=400"
+  },
+  
+  {
+    "id": 9,
+    "title": "Pantalón Oxford Tiro Alto",
+    "price": 36000,
+    "discountPercentage": 8,
+    "rating": 4.7,
+    "brand": "Pin Ups Denim",
+    "category": "pantalones",
+    "thumbnail": "https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?w=400"
+  },
+    {
+      "id": 10,
+      "title": "Remera Estampada Oversize",
+      "price": 42000,
+      "discountPercentage": 12,
+      "rating": 4.8,
+      "brand": "Pin Ups Collection",
+      "category": "remeras",
+      "thumbnail": "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?w=400"
+    }
 ]

@@ -2,7 +2,7 @@ import Slider from '../../src/components/Slider';
 import ProductContainer from '../../src/components/JustForYou';
 import Button from 'react-bootstrap/Button';
 import { Container } from 'react-bootstrap';
-
+import Categories from '../components/Categories';
 const Home = () => {
   return (
     <>
@@ -10,7 +10,7 @@ const Home = () => {
       <div className="w-100">
         <Slider />
       </div>
-      
+      <Categories />
       {/* Contenido con container para mantener márgenes */}
       <Container>
         <div className="banner mt-3">
@@ -24,6 +24,7 @@ const Home = () => {
             Load More
           </Button>
         </div>
+      
       </Container>
     </>
   );
