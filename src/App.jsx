@@ -9,7 +9,7 @@ import Productdetails from './pages/Productdetails.jsx';
 import Footer from './components/Footer.jsx';
 import SecureRoute from './services/SecureRoute.jsx';
 import CategoryPage from './pages/CategoryPage.jsx';
-
+import WhatsAppButton from './components/WhatsAppButton.jsx';
 
 function App() {
 
@@ -28,6 +28,7 @@ function App() {
       <Route path='/productdetails/:id' element={<Productdetails/>} />
     </Routes>
     <Footer/>
+    <WhatsAppButton/>
     </>
   )
 }
