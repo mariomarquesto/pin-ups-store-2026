@@ -15,6 +15,8 @@ import Location from './pages/Location.jsx';
 import TermsAndConditions from './pages/TermsAndConditions.jsx';
 import PrivacyPolicy from './pages/PrivacyPolicy.jsx';
 import HelpCenter from './pages/HelpCenter.jsx';
+import OrderConfirmation from './pages/OrderConfirmation.jsx';
+
 
 
 
@@ -39,6 +41,7 @@ function App() {
       <Route path='/termsandconditions' element={<TermsAndConditions/>} />
       <Route path='/helpcenter' element={<HelpCenter/>} />
       <Route path='/privacypolicy' element={<PrivacyPolicy/>} />
+<Route path='/orden-confirmada' element={<OrderConfirmation/>} />
     </Routes>
     <Footer/>
     <WhatsAppButton/>

@@ -1,6 +1,7 @@
+// src/pages/ProductDetails.jsx
 import { useState, useEffect } from 'react';
 import { Container, Row, Col, Button } from 'react-bootstrap';
-import { MdStar, MdStarHalf, MdStarOutline,  } from 'react-icons/md';
+import { MdStar, MdStarHalf, MdStarOutline } from 'react-icons/md';
 import { CiDeliveryTruck, CiHeart } from 'react-icons/ci';
 import { BsShieldCheck, BsArrowLeft } from 'react-icons/bs';
 import { PiKeyReturnFill } from 'react-icons/pi';
@@ -50,6 +51,33 @@ const ProductDetails = () => {
     return stars;
   };
 
+  // ============================================================
+  // FUNCIONES PARA LA ORDEN DE COMPRA
+  // ============================================================
+
+  // Generar número de orden único
+  const generarNumeroOrden = () => {
+    const fecha = new Date();
+    const anio = fecha.getFullYear();
+    const mes = String(fecha.getMonth() + 1).padStart(2, '0');
+    const dia = String(fecha.getDate()).padStart(2, '0');
+    const random = Math.floor(Math.random() * 10000).toString().padStart(4, '0');
+    return `PIN-${anio}${mes}${dia}-${random}`;
+  };
+
+  // Formatear fecha para la orden
+  const formatearFecha = () => {
+    const fecha = new Date();
+    return fecha.toLocaleString('es-AR', {
+      day: '2-digit',
+      month: '2-digit',
+      year: 'numeric',
+      hour: '2-digit',
+      minute: '2-digit',
+      second: '2-digit'
+    });
+  };
+
   const handleAddToCart = () => {
     if (!isLoggedIn) {
       alert('💄 Iniciá sesión para agregar productos');
@@ -62,6 +90,86 @@ const ProductDetails = () => {
     else cart.push({ ...product, quantity: count });
     localStorage.setItem('cart', JSON.stringify(cart));
     alert(`🛍️ ${product.title} agregado al carrito`);
+  };
+
+  // Enviar orden por WhatsApp a la empresa
+  const enviarOrdenPorWhatsApp = (orden) => {
+    const telefonoEmpresa = "5493813471147"; // Número de WhatsApp de Pin Ups
+    const mensaje = encodeURIComponent(
+      `🛍️ *NUEVA ORDEN DE COMPRA - PIN UPS* 🛍️\n\n` +
+      `📋 *NÚMERO DE ORDEN:* ${orden.numeroOrden}\n` +
+      `📅 *FECHA:* ${orden.fecha}\n` +
+      `👤 *CLIENTE:* ${orden.cliente.nombre}\n` +
+      `📧 *EMAIL:* ${orden.cliente.email}\n` +
+      `📞 *TELÉFONO:* ${orden.cliente.telefono}\n\n` +
+      `📦 *PRODUCTO:*\n` +
+      `   • ${orden.producto.titulo}\n` +
+      `   • Cantidad: ${orden.producto.cantidad}\n` +
+      `   • Precio unitario: ${formatear(orden.producto.precioUnitario)}\n` +
+      `   • Subtotal: ${formatear(orden.producto.subtotal)}\n\n` +
+      `💰 *TOTAL DE LA COMPRA:* ${formatear(orden.total)}\n\n` +
+      `📝 *OBSERVACIONES:* ${orden.observaciones || 'Sin observaciones'}\n\n` +
+      `✨ *ESTADO:* Pendiente de confirmación\n\n` +
+      `🔗 *PARA CONFIRMAR LA ORDEN, RESPONDER ESTE MENSAJE*`
+    );
+    
+    window.open(`https://wa.me/${telefonoEmpresa}?text=${mensaje}`, '_blank');
+  };
+
+  // Manejar compra ahora
+  const handleBuyNow = () => {
+    if (!isLoggedIn) {
+      alert('💄 Iniciá sesión para realizar la compra');
+      navigate('/login');
+      return;
+    }
+
+    // Obtener datos del usuario logueado
+    const user = JSON.parse(localStorage.getItem('users'));
+    const telefonoUsuario = user?.phone || 'No especificado';
+    const emailUsuario = user?.email || 'No especificado';
+    const nombreUsuario = user?.fName && user?.lName 
+      ? `${user.fName} ${user.lName}` 
+      : user?.fName || 'Cliente Pin Ups';
+
+    const precioUnitario = product.price - (product.price * product.discountPercentage * 0.01);
+    const subtotal = precioUnitario * count;
+    const total = subtotal; // por ahora sin envío
+
+    // Crear objeto de orden
+    const orden = {
+      numeroOrden: generarNumeroOrden(),
+      fecha: formatearFecha(),
+      cliente: {
+        nombre: nombreUsuario,
+        email: emailUsuario,
+        telefono: telefonoUsuario
+      },
+      producto: {
+        id: product.id,
+        titulo: product.title,
+        cantidad: count,
+        precioUnitario: precioUnitario,
+        subtotal: subtotal
+      },
+      total: total,
+      observaciones: `Cliente solicita factura tipo A/B/C. Contactar para coordinar pago y envío.`,
+      estado: 'pendiente'
+    };
+
+    // Guardar orden en localStorage (historial del usuario)
+    const ordenes = JSON.parse(localStorage.getItem('ordenes')) || [];
+    ordenes.push(orden);
+    localStorage.setItem('ordenes', JSON.stringify(ordenes));
+    
+    // Guardar última orden para mostrar resumen
+    localStorage.setItem('ultimaOrden', JSON.stringify(orden));
+    
+    // Enviar por WhatsApp a la empresa
+    enviarOrdenPorWhatsApp(orden);
+    
+    // Redirigir a página de resumen de orden
+    navigate('/orden-confirmada');
   };
 
   return (
@@ -212,6 +320,7 @@ const ProductDetails = () => {
             <Button 
               variant="outline-secondary" 
               className="flex-fill py-2 rounded-pill fw-semibold"
+              onClick={handleBuyNow}
             >
               💳 Comprar ahora
             </Button>
