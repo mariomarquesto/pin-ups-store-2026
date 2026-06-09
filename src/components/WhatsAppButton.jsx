@@ -5,12 +5,23 @@ import { FaWhatsapp } from 'react-icons/fa';
 const WhatsAppButton = () => {
   const [isVisible, setIsVisible] = useState(true);
   const [showTooltip, setShowTooltip] = useState(false);
+  const [userName, setUserName] = useState('');
   
-  // Número de WhatsApp de la tienda
-  const phoneNumber =  "549381476031";
+  // Obtener el nombre del usuario logueado
+  useEffect(() => {
+    const loggedUser = JSON.parse(localStorage.getItem('users'));
+    if (loggedUser && loggedUser.fName) {
+      setUserName(loggedUser.fName);
+    } else {
+      setUserName('cliente');
+    }
+  }, []);
+
+  // Tu número de WhatsApp
+  const phoneNumber = "5493813471147";
   
-  // Mensaje actualizado - VIVARACHO Y CON ONDA
-  const message = encodeURIComponent("¡Hola! 👋 Soy de la web de Pin Ups y vi sus productos 😍 Me encantaría consultar sobre:");
+  // Mensaje personalizado con el nombre del usuario
+  const message = encodeURIComponent(`¡Hola! 👋 Soy ${userName} de la web de Pin Ups y vi sus productos 😍 Me encantaría consultar sobre:`);
   const whatsappUrl = `https://wa.me/${phoneNumber}?text=${message}`;
 
   // Detectar scroll
