@@ -14,7 +14,7 @@ import AboutUs from './pages/AboutUs.jsx';
 import Location from './pages/Location.jsx';
 import TermsAndConditions from './pages/TermsAndConditions.jsx';
 import PrivacyPolicy from './pages/PrivacyPolicy.jsx';
-
+import HelpCenter from './pages/HelpCenter.jsx';
 
 
 
@@ -37,6 +37,7 @@ function App() {
       <Route path='/aboutus' element={<AboutUs/>} />
       <Route path='/location' element={<Location/>} />
       <Route path='/termsandconditions' element={<TermsAndConditions/>} />
+      <Route path='/helpcenter' element={<HelpCenter/>} />
       <Route path='/privacypolicy' element={<PrivacyPolicy/>} />
     </Routes>
     <Footer/>

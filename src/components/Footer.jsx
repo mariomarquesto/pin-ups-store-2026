@@ -10,10 +10,9 @@ function Footer() {
               ATENCIÓN AL CLIENTE
             </h5>
             <ul className="list-unstyled">
-              <li className="mb-2"><a href="#" className="text-dark text-decoration-none small">Centro de Ayuda</a></li>
-              <li className="mb-2"><a href="#" className="text-dark text-decoration-none small">Guía de Talles Reales</a></li>
-              <li className="mb-2"><a href="#" className="text-dark text-decoration-none small">Cambios y Devoluciones</a></li>
-              <li className="mb-2"><a href="#" className="text-dark text-decoration-none small">Contacto por WhatsApp</a></li>
+              <li className="mb-2"><a href="/helpcenter" className="text-dark text-decoration-none small">Centro de Ayuda</a></li>
+              <li className="mb-2"><a href="/helpcenter" className="text-dark text-decoration-none small">Guía de Talles Reales</a></li>
+              <li className="mb-2"><a href="/helpcenter" className="text-dark text-decoration-none small">Cambios y Devoluciones</a></li>
             </ul>
           </div>
           
@@ -63,7 +62,7 @@ function Footer() {
               SEGUINOS
             </h5>
             <div className="d-flex gap-3 justify-content-center justify-content-md-start">
-              <a href="#" className="text-secondary fs-5" target="_blank" rel="noreferrer"><i className="fa-brands fa-facebook"></i></a>
+              <a href="https://www.facebook.com/pinupstuc" className="text-secondary fs-5" target="_blank" rel="noreferrer"><i className="fa-brands fa-facebook"></i></a>
               <a href="https://www.tiktok.com/@pinupstuc" className="text-secondary fs-5" target="_blank" rel="noreferrer"><i className="fa-brands fa-tiktok"></i></a>
               <a href="#" className="text-secondary fs-5" target="_blank" rel="noreferrer"><i className="fa-brands fa-instagram"></i></a>
             </div>
