@@ -1,8 +1,7 @@
 // src/pages/CategoryPage.jsx
 import { useState, useEffect } from "react";
-import { Container, } from "react-bootstrap";
+import { Container } from "react-bootstrap";
 import { useParams, Link } from "react-router-dom";
-// Product component not used here; removed unused import to fix lint error
 import productList from "../data/products.json";
 
 // Mapeo de nombres de categoría
@@ -22,7 +21,6 @@ const CategoryPage = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // Filtrar productos que coinciden con la categoría
     const filtered = productList.filter(
       (product) =>
         product.category === categoryName ||
@@ -62,12 +60,38 @@ const CategoryPage = () => {
           <p className="text-muted">
             {filteredProducts.length} productos encontrados
           </p>
+          
+          {/* Botón Volver al inicio - MEJORADO */}
           <Link to="/" className="text-decoration-none">
-            <span className="small text-muted">← Volver al inicio</span>
+            <div 
+              className="d-inline-flex align-items-center gap-2 px-4 py-2 rounded-pill transition-all"
+              style={{ 
+                backgroundColor: '#f85606',
+                color: 'white',
+                fontSize: '0.85rem',
+                fontWeight: '500',
+                border: 'none',
+                cursor: 'pointer',
+                transition: 'all 0.2s ease'
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.backgroundColor = '#e04a00';
+                e.currentTarget.style.transform = 'translateY(-2px)';
+                e.currentTarget.style.boxShadow = '0 4px 12px rgba(248, 86, 6, 0.3)';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.backgroundColor = '#f85606';
+                e.currentTarget.style.transform = 'translateY(0)';
+                e.currentTarget.style.boxShadow = 'none';
+              }}
+            >
+              <span style={{ fontSize: '1.1rem' }}>←</span>
+              <span>Volver al inicio</span>
+            </div>
           </Link>
         </div>
 
-        {/* Usamos el componente Product que ya tenés */}
+        {/* Productos */}
         {filteredProducts.length > 0 ? (
           <div className="d-flex flex-wrap justify-content-center gap-4 py-4">
             {filteredProducts.map((item) => {
@@ -169,12 +193,21 @@ const CategoryPage = () => {
             <h4 className="text-muted">No hay productos en esta categoría</h4>
             <p className="text-muted">Pronto tendremos novedades para vos ✨</p>
             <Link to="/">
-              <button
-                className="btn btn-primary mt-3"
-                style={{ backgroundColor: "#f85606", borderColor: "#f85606" }}
+              <div 
+                className="d-inline-flex align-items-center gap-2 px-4 py-2 rounded-pill"
+                style={{ 
+                  backgroundColor: '#f85606',
+                  color: 'white',
+                  fontSize: '0.9rem',
+                  fontWeight: '500',
+                  cursor: 'pointer'
+                }}
+                onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#e04a00'}
+                onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#f85606'}
               >
-                Seguir comprando
-              </button>
+                <span>🛍️</span>
+                <span>Seguir comprando</span>
+              </div>
             </Link>
           </div>
         )}
