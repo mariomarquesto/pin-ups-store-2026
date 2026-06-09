@@ -6,12 +6,14 @@ const WhatsAppButton = () => {
   const [isVisible, setIsVisible] = useState(true);
   const [showTooltip, setShowTooltip] = useState(false);
   
-  // Número de WhatsApp de la tienda (formato internacional sin +)
-const phoneNumber = import.meta.env.VITE_WASS_NUMBER;
-  const message = encodeURIComponent("¡Hola! 👋 Vengo de la web de Pin Ups. Me interesa consultar sobre:");
+  // Número de WhatsApp de la tienda
+  const phoneNumber =  "381476031";
+  
+  // Mensaje actualizado - VIVARACHO Y CON ONDA
+  const message = encodeURIComponent("¡Hola! 👋 Soy de la web de Pin Ups y vi sus productos 😍 Me encantaría consultar sobre:");
   const whatsappUrl = `https://wa.me/${phoneNumber}?text=${message}`;
 
-  // Detectar scroll para mostrar/ocultar el botón
+  // Detectar scroll
   useEffect(() => {
     let lastScrollY = window.scrollY;
     const handleScroll = () => {
@@ -38,14 +40,12 @@ const phoneNumber = import.meta.env.VITE_WASS_NUMBER;
 
   return (
     <>
-      {/* Tooltip flotante */}
       {showTooltip && (
         <div className="whatsapp-tooltip">
-          💬 ¿Consultas? ¡Escribinos!
+          💬 ¡Escribinos! Te esperamos 💖
         </div>
       )}
 
-      {/* Botón flotante de WhatsApp */}
       <a
         href={whatsappUrl}
         target="_blank"
@@ -57,7 +57,6 @@ const phoneNumber = import.meta.env.VITE_WASS_NUMBER;
         <span className="whatsapp-pulse"></span>
       </a>
 
-      {/* Estilos del botón */}
       <style>{`
         .whatsapp-button {
           position: fixed;
