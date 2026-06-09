@@ -7,7 +7,7 @@ const WhatsAppButton = () => {
   const [showTooltip, setShowTooltip] = useState(false);
   
   // Número de WhatsApp de la tienda
-  const phoneNumber =  "381476031";
+  const phoneNumber =  "549381476031";
   
   // Mensaje actualizado - VIVARACHO Y CON ONDA
   const message = encodeURIComponent("¡Hola! 👋 Soy de la web de Pin Ups y vi sus productos 😍 Me encantaría consultar sobre:");
