@@ -12,6 +12,9 @@ import CategoryPage from './pages/CategoryPage.jsx';
 import WhatsAppButton from './components/WhatsAppButton.jsx';
 import AboutUs from './pages/AboutUs.jsx';
 import Location from './pages/Location.jsx';
+import TermsAndConditions from './pages/TermsAndConditions.jsx';
+import PrivacyPolicy from './pages/PrivacyPolicy.jsx';
+
 
 
 
@@ -33,6 +36,8 @@ function App() {
       <Route path='/productdetails/:id' element={<Productdetails/>} />
       <Route path='/aboutus' element={<AboutUs/>} />
       <Route path='/location' element={<Location/>} />
+      <Route path='/termsandconditions' element={<TermsAndConditions/>} />
+      <Route path='/privacypolicy' element={<PrivacyPolicy/>} />
     </Routes>
     <Footer/>
     <WhatsAppButton/>

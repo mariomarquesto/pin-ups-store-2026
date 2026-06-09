@@ -25,8 +25,8 @@ function Footer() {
             <ul className="list-unstyled">
               <li className="mb-2"><a href="/aboutus" className="text-dark text-decoration-none small">Sobre Nosotras</a></li>
               <li className="mb-2"><a href="/location" className="text-dark text-decoration-none small">📍 Sucursal</a></li>
-              <li className="mb-2"><a href="#" className="text-dark text-decoration-none small">Términos y Condiciones</a></li>
-              <li className="mb-2"><a href="#" className="text-dark text-decoration-none small">Política de Privacidad</a></li>
+              <li className="mb-2"><a href="/termsandconditions" className="text-dark text-decoration-none small">Términos y Condiciones</a></li>
+              <li className="mb-2"><a href="/privacypolicy" className="text-dark text-decoration-none small">Política de Privacidad</a></li>
             </ul>
           </div>
           
