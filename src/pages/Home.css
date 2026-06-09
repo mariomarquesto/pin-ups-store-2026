@@ -1,0 +1,10 @@
+/* Ocultar Categories en móviles */
+@media (max-width: 768px) {
+  .categories-section {
+    display: none;
+  }
+  
+  .heroSection {
+    flex-direction: column;
+  }
+}
