@@ -10,6 +10,11 @@ import Footer from './components/Footer.jsx';
 import SecureRoute from './services/SecureRoute.jsx';
 import CategoryPage from './pages/CategoryPage.jsx';
 import WhatsAppButton from './components/WhatsAppButton.jsx';
+import AboutUs from './pages/AboutUs.jsx';
+import Location from './pages/Location.jsx';
+
+
+
 
 function App() {
 
@@ -26,6 +31,8 @@ function App() {
       <Route path='/category/:categoryName' element={<CategoryPage/>} />
       <Route path='/searchedproduct' element={<Searchedproduct/>} />
       <Route path='/productdetails/:id' element={<Productdetails/>} />
+      <Route path='/aboutus' element={<AboutUs/>} />
+      <Route path='/location' element={<Location/>} />
     </Routes>
     <Footer/>
     <WhatsAppButton/>

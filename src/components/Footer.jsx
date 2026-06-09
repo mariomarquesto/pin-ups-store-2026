@@ -23,8 +23,8 @@ function Footer() {
               PIN UPS
             </h5>
             <ul className="list-unstyled">
-              <li className="mb-2"><a href="#" className="text-dark text-decoration-none small">Sobre Nosotras</a></li>
-              <li className="mb-2"><a href="#" className="text-dark text-decoration-none small">Nuestras Sucursales</a></li>
+              <li className="mb-2"><a href="/aboutus" className="text-dark text-decoration-none small">Sobre Nosotras</a></li>
+              <li className="mb-2"><a href="/location" className="text-dark text-decoration-none small">📍 Sucursal</a></li>
               <li className="mb-2"><a href="#" className="text-dark text-decoration-none small">Términos y Condiciones</a></li>
               <li className="mb-2"><a href="#" className="text-dark text-decoration-none small">Política de Privacidad</a></li>
             </ul>
