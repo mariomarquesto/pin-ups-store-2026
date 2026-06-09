@@ -2,7 +2,7 @@ import Carousel from 'react-bootstrap/Carousel';
 
 function Slider() {
   return (
-    <div className="container-fluid p-0 m-0" style={{width: '75%'}}>
+    <div className="container-fluid p-0 m-0" style={{width: '100%'}}>
         <Carousel data-bs-theme="dark">
             <Carousel.Item>
                 <img

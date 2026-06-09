@@ -1,38 +1,30 @@
-import Slider from "../../src/components/Slider";
-import Categories from "../../src/components/Categories";
-import ProductContainer from "../../src/components/JustForYou";
-import Button from "react-bootstrap/Button";
+import Slider from '../../src/components/Slider';
+import ProductContainer from '../../src/components/JustForYou';
+import Button from 'react-bootstrap/Button';
+import { Container } from 'react-bootstrap';
 
 const Home = () => {
   return (
     <>
-      <div className="heroSection mt-3 container d-flex justify-content-between align-items-center w-100">
-        {/* Categories se oculta en móviles con d-none d-md-block */}
-        <div className="d-none d-md-block">
-          <Categories />
-        </div>
+      {/* Slider - ancho completo, fuera del container */}
+      <div className="w-100">
         <Slider />
       </div>
-
-      <div className="banner container mt-3">
-        <img
-          src="./pin-ups-baner.png"
-          alt="Banner Image"
-          style={{ width: "100%" }}
-        />
-      </div>
-
-      <ProductContainer />
-
-      <div className="d-flex justify-content-center align-items-center">
-        <Button
-          variant="outline-success"
-          className="mt-3"
-          style={{ width: "15rem" }}
-        >
-          Load More
-        </Button>
-      </div>
+      
+      {/* Contenido con container para mantener márgenes */}
+      <Container>
+        <div className="banner mt-3">
+          <img src='./pin-ups-baner.png' alt="Banner Image" style={{ width: '100%' }} />
+        </div>
+        
+        <ProductContainer />
+        
+        <div className='d-flex justify-content-center align-items-center'>
+          <Button variant="outline-success" className='mt-3' style={{ width: '15rem' }}>
+            Load More
+          </Button>
+        </div>
+      </Container>
     </>
   );
 };
