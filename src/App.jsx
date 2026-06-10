@@ -36,7 +36,7 @@ function App() {
       <Route path='/category/:categoryName' element={<CategoryPage/>} />
       <Route path='/searchedproduct' element={<Searchedproduct/>} />
       <Route path='/productdetails/:id' element={<Productdetails/>} />
-      <Route path='/Nosotras' element={<NosotrasPage/>} />
+      <Route path='/nosotras' element={<NosotrasPage/>} />
       <Route path='/location' element={<Location/>} />
       <Route path='/termsandconditions' element={<TermsAndConditions/>} />
       <Route path='/helpcenter' element={<HelpCenter/>} />
