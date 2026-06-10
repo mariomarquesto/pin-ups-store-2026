@@ -41,5 +41,14 @@
   color: #888;
 } */
 
+html,
+body,
+#root {
+  min-height: 100%;
+  background-color: #fef6f0 !important;
+}
 
-
+body {
+  color: #333;
+  font-family: sans-serif;
+}

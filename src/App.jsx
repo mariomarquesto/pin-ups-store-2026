@@ -16,7 +16,7 @@ import TermsAndConditions from './pages/TermsAndConditions.jsx';
 import PrivacyPolicy from './pages/PrivacyPolicy.jsx';
 import HelpCenter from './pages/HelpCenter.jsx';
 import OrderConfirmation from './pages/OrderConfirmation.jsx';
-
+import './App.css';
 
 
 
