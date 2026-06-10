@@ -72,6 +72,9 @@ function Footer() {
                 <Link
                   to="/nosotras"
                   className="text-dark text-decoration-none small"
+                   onClick={() => {
+    window.scrollTo(0, 0);
+  }}
                 >
                   Sobre Nosotras
                 </Link>
@@ -81,6 +84,9 @@ function Footer() {
                 <Link
                   to="/location"
                   className="text-dark text-decoration-none small"
+                   onClick={() => {
+    window.scrollTo(0, 0);
+  }}
                 >
                   📍 Sucursal
                 </Link>
@@ -90,6 +96,9 @@ function Footer() {
                 <Link
                   to="/termsandconditions"
                   className="text-dark text-decoration-none small"
+                   onClick={() => {
+    window.scrollTo(0, 0);
+  }}
                 >
                   Términos y Condiciones
                 </Link>
@@ -99,6 +108,9 @@ function Footer() {
                 <Link
                   to="/privacypolicy"
                   className="text-dark text-decoration-none small"
+                   onClick={() => {
+    window.scrollTo(0, 0);
+  }}
                 >
                   Política de Privacidad
                 </Link>
