@@ -10,7 +10,7 @@ import Footer from './components/Footer.jsx';
 import SecureRoute from './services/SecureRoute.jsx';
 import CategoryPage from './pages/CategoryPage.jsx';
 import WhatsAppButton from './components/WhatsAppButton.jsx';
-import AboutUs from './pages/AboutUs.jsx';
+import NosotrasPage from './pages/Nosotras.jsx';
 import Location from './pages/Location.jsx';
 import TermsAndConditions from './pages/TermsAndConditions.jsx';
 import PrivacyPolicy from './pages/PrivacyPolicy.jsx';
@@ -36,7 +36,7 @@ function App() {
       <Route path='/category/:categoryName' element={<CategoryPage/>} />
       <Route path='/searchedproduct' element={<Searchedproduct/>} />
       <Route path='/productdetails/:id' element={<Productdetails/>} />
-      <Route path='/aboutus' element={<AboutUs/>} />
+      <Route path='/Nosotras' element={<NosotrasPage/>} />
       <Route path='/location' element={<Location/>} />
       <Route path='/termsandconditions' element={<TermsAndConditions/>} />
       <Route path='/helpcenter' element={<HelpCenter/>} />

@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { FaHeart, FaUsers,  FaQuoteLeft, FaInstagram, FaWhatsapp, FaStar } from 'react-icons/fa';
 import {  useEffect } from 'react';
 
-const AboutUs = () => {
+const NosotrasPage = () => {
 
   useEffect(() => {
     const handleScroll = () => {
@@ -238,4 +238,4 @@ const AboutUs = () => {
   );
 };
 
-export default AboutUs;
+export default NosotrasPage;
