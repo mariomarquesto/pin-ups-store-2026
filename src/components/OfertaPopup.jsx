@@ -33,7 +33,7 @@ function OfertaPopup() {
         
         <div className="p-4">
           <h2 style={{ color: '#f85606' }}>¡Edición Limitada!</h2>
-          <p className="fs-5 text-muted">Gorda mi Videee dame pa la hojitaaa!!!!</p>
+          <p className="fs-5 text-muted">Selección exclusiva para tus curvas por tiempo limitado.</p>
           <Button 
               className="px-5 py-2 mt-2"
               style={{ backgroundColor: '#f85606', border: 'none', borderRadius: '50px' }} 
