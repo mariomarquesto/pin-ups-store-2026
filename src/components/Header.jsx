@@ -40,7 +40,7 @@ function Header() {
       <Container>
         <Link to="/">
           <img
-            src="/pin-ups-logo2.png"
+            src="/logo-ultimo.png"
             alt="logo"
             width={50}
             height={50}

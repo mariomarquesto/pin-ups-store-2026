@@ -178,7 +178,7 @@ function Footer() {
           {/* Columna 4: Logo y Redes */}
           <div className="col-md-3 col-6 text-center text-md-start">
             <img
-              src="/pin-ups-logo2.png"
+              src="/logo-ultimo.png"
               alt="Pin Ups Logo"
               width={55}
               height={55}
